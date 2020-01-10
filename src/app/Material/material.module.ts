@@ -4,7 +4,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatProgressSpinnerModule,
-  MatListModule
+  MatListModule,
+  MatSelectModule
  } from "@angular/material";
 
 
@@ -18,7 +19,8 @@ import {
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

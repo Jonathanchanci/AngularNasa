@@ -1,31 +1,29 @@
-<div *ngIf="apod">
-    <mat-card class="card-content" >
-        <h2>Imagen de astronomia del día</h2>
+<mat-card>
+    <mat-form-field>
+        <mat-select placeholder="Seleccione la cámara de Rover" [(ngModel)]="currentCamera">
+            <mat-option *ngFor="let cam of cameras" 
+                        [value]="cam"
+                        (click)="onSelectCamera(cam)">{{cam}}</mat-option>
+        </mat-select>
+    </mat-form-field>        
+</mat-card>
+
+<div *ngIf="marsImages" class="card-container">
+    <mat-card *ngFor="let masrImage of marsImages" class="card-content">
         <mat-card-header>
-            <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-512/nasa-2-283432.png">
-            <mat-card-title>{{apod.title}}</mat-card-title>
-            <mat-card-subtitle>{{apod.date | date:'fullDate' | lowerCase}}</mat-card-subtitle>
+            <mat-card-title>{{masrImage.rover.name}}</mat-card-title>
+            <mat-card-subtitle>{{masrImage.earth_date | date:'mediumDate'}}</mat-card-subtitle>
         </mat-card-header>
-
-        <img mat-card-image [src]="apod.url">
-
-        <mat-card-content>
-            <p>{{apod.explanation}}</p>            
-        </mat-card-content>
-
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Like</button >
-            <button mat-button>Shared</button>
-        </mat-card-actions>
+        <img mat-card-image [src]="masrImage.img_src">
     </mat-card>
 </div>
 
-<div *ngIf="!apod && !error" class="card-content">
-    <mat-spinner class="card-content"></mat-spinner>
+<div *ngIf="!marsImages && !error" class="card-content">
+    <mat-spinner class="card-content">{{error}}</mat-spinner>
 </div>
 
 <div *ngIf="error">
-    <mat-card class="card-content">
+    <mat-card >
         <h2>{{error}}</h2>
         <mat-card-content>
             <mat-list>

@@ -1,8 +1,8 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NasaComponent } from './nasa/nasa.component';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { MarsComponent } from './mars/mars.component';
 
 
 const routes: Routes = [
@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'nasa',
     component : NasaComponent
+  },
+  {
+    path: 'mars',
+    component: MarsComponent
   }
 ];
 
