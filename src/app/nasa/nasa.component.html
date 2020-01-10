@@ -1,0 +1,22 @@
+<hr>
+<div>
+    <mat-card class="card-content">
+        <h2>Imagen de astronomia del día</h2>
+        <mat-card-header>
+            <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-512/nasa-2-283432.png">
+            <mat-card-title>{{apod.title}}</mat-card-title>
+            <mat-card-subtitle>{{apod.date | date:'fullDate' | lowerCase}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image [src]="apod.url">
+
+        <mat-card-content>
+            <p>{{apod.explanation}}</p>            
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-flat-button color="primary">Like</button >
+            <button mat-button>Shared</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
