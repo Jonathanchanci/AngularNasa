@@ -1,6 +1,6 @@
 <hr>
-<div>
-    <mat-card class="card-content">
+<div *ngIf="apod">
+    <mat-card class="card-content" >
         <h2>Imagen de astronomia del día</h2>
         <mat-card-header>
             <img mat-card-avatar src="https://cdn.iconscout.com/icon/free/png-512/nasa-2-283432.png">
@@ -18,5 +18,40 @@
             <button mat-flat-button color="primary">Like</button >
             <button mat-button>Shared</button>
         </mat-card-actions>
+    </mat-card>
+</div>
+
+<div *ngIf="!apod && !error" class="card-content">
+    <mat-spinner class="card-content"></mat-spinner>
+</div>
+
+<div *ngIf="error">
+    <mat-card class="card-content">
+        <h2>{{error}}</h2>
+        <mat-card-content>
+            <mat-list>
+                <h3 mat-subheader>Detalles del error</h3>
+                <mat-list-item>
+                    <h4 mat-line>Name</h4>
+                    <p mat-line>{{errorDes.name}}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <h4 mat-line>Status</h4>
+                    <p mat-line>{{errorDes.status}}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <h4 mat-line>Status text</h4>
+                    <p mat-line>{{errorDes.statusText}}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <h4 mat-line>Url</h4>
+                    <p mat-line>{{errorDes.url}}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <h4 mat-line>Mensaje</h4>
+                    <p mat-line>{{errorDes.message}}</p>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
     </mat-card>
 </div>
